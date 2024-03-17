@@ -12,7 +12,7 @@ use p3_field::AbstractField;
 use p3_field::Field;
 
 use super::Chip;
-use super::Proof;
+use super::{ShardProof, Proof};
 use super::Prover;
 use super::StarkGenericConfig;
 use super::VerificationError;
@@ -140,6 +140,7 @@ impl<SC: StarkGenericConfig, A: MachineAir<SC::Val>> MachineStark<SC, A> {
         SC::Challenger: Clone,
         A: for<'a> Air<VerifierConstraintFolder<'a, SC>>,
     {
+        println!("VERIFY. SHARD SIZE: {}, NUM SHARDS: {}", std::mem::size_of::<ShardProof<SC>>(), proof.shard_proofs.len());
         // TODO: Observe the challenges in a tree-like structure for easily verifiable reconstruction
         // in a map-reduce recursion setting.
         #[cfg(feature = "perf")]
@@ -158,6 +159,7 @@ impl<SC: StarkGenericConfig, A: MachineAir<SC::Val>> MachineStark<SC, A> {
                     .iter()
                     .filter(|chip| proof.chip_ids.contains(&chip.name()))
                     .collect::<Vec<_>>();
+                println!("CHIPS: {}", chips.len());
                 Verifier::verify_shard(&self.config, &chips, &mut challenger.clone(), proof)
                     .map_err(ProgramVerificationError::InvalidSegmentProof)
             })?;

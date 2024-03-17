@@ -4,7 +4,6 @@ use core::arch::asm;
 /// Blake3 compress operation.
 ///
 /// The result is written over the input state.
-#[allow(unused_variables)]
 #[no_mangle]
 pub extern "C" fn syscall_blake3_compress_inner(state: *mut u32, message: *mut u32) {
     #[cfg(target_os = "zkvm")]

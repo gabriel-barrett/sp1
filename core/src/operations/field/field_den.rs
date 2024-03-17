@@ -84,7 +84,6 @@ impl<F: PrimeField32> FieldDenCols<F> {
 }
 
 impl<V: Copy> FieldDenCols<V> {
-    #[allow(unused_variables)]
     pub fn eval<AB: SP1AirBuilder<Var = V>, P: FieldParameters>(
         &self,
         builder: &mut AB,

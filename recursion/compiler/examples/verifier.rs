@@ -5,7 +5,6 @@ use sp1_core::stark::{GenericVerifierConstraintFolder, MachineChip, StarkGeneric
 use sp1_recursion_compiler::ir::{Ext, SymbolicExt};
 
 #[allow(clippy::type_complexity)]
-#[allow(dead_code)]
 fn verify_constraints<SC: StarkGenericConfig, A: MachineAir<SC::Val>>(
     chip: MachineChip<SC, A>,
     folder: &mut GenericVerifierConstraintFolder<

@@ -129,7 +129,6 @@ impl<F: PrimeField32> FieldOpCols<F> {
 }
 
 impl<V: Copy> FieldOpCols<V> {
-    #[allow(unused_variables)]
     pub fn eval<
         AB: SP1AirBuilder<Var = V>,
         P: FieldParameters,

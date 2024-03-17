@@ -23,7 +23,6 @@ pub type OpeningProof<SC> = <<SC as StarkGenericConfig>::Pcs as Pcs<Val<SC>, Val
 pub type OpeningError<SC> = <<SC as StarkGenericConfig>::Pcs as Pcs<Val<SC>, ValMat<SC>>>::Error;
 pub type Challenge<SC> = <SC as StarkGenericConfig>::Challenge;
 pub type Challenger<SC> = <SC as StarkGenericConfig>::Challenger;
-#[allow(dead_code)]
 type ChallengeMat<SC> = RowMajorMatrix<Challenge<SC>>;
 type ValMat<SC> = RowMajorMatrix<Val<SC>>;
 pub type Com<SC> = <<SC as StarkGenericConfig>::Pcs as Pcs<Val<SC>, ValMat<SC>>>::Commitment;

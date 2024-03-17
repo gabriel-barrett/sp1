@@ -30,7 +30,6 @@ pub trait MachineAir<F: Field>: BaseAir<F> {
         0
     }
 
-    #[allow(unused_variables)]
     fn generate_preprocessed_trace(&self, program: &Program) -> Option<RowMajorMatrix<F>> {
         None
     }

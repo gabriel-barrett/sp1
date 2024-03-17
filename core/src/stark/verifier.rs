@@ -48,7 +48,7 @@ impl<SC: StarkGenericConfig, A: MachineAir<SC::Val>> Verifier<SC, A> {
             .iter()
             .zip(opened_values.chips.iter())
             .map(|(chip, val)| {
-                (
+                let (x,y,z) = (
                     Dimensions {
                         width: chip.width(),
                         height: 1 << val.log_degree,
@@ -61,7 +61,9 @@ impl<SC: StarkGenericConfig, A: MachineAir<SC::Val>> Verifier<SC, A> {
                         width: SC::Challenge::D << chip.log_quotient_degree(),
                         height: 1 << val.log_degree,
                     },
-                )
+                );
+                println!("CHIP DIMENSIONS: {}x{}, {}x{}, {}x{}", x.width, x.height, y.width, y.height, z.width, z.height);
+                (x,y,z)
             })
             .multiunzip();
 
@@ -72,6 +74,8 @@ impl<SC: StarkGenericConfig, A: MachineAir<SC::Val>> Verifier<SC, A> {
             .iter()
             .map(|val| SC::Val::two_adic_generator(val.log_degree))
             .collect::<Vec<_>>();
+        println!("SUBGROUP VALUES: {}", g_subgroups.len());
+
 
         let ShardCommitment {
             main_commit,

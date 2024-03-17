@@ -1,5 +1,3 @@
-#![allow(unused)]
-
 use crate::{syscall_secp256k1_add, syscall_secp256k1_decompress, syscall_secp256k1_double};
 use anyhow::Context;
 use anyhow::{anyhow, Result};

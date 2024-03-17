@@ -41,7 +41,6 @@ impl<F: TwoAdicField> ZerofierOnCoset<F> {
     }
 
     /// Returns `Z_H(g * w^i)`.
-    #[allow(dead_code)]
     pub fn eval(&self, i: usize) -> F {
         self.evals[i & ((1 << self.rate_bits) - 1)]
     }

@@ -2,7 +2,6 @@
 use core::arch::asm;
 
 /// Reads data from the prover.
-#[allow(unused_variables)]
 #[no_mangle]
 pub extern "C" fn syscall_read(fd: u32, read_buf: *mut u8, nbytes: usize) {
     let whole_words: usize = nbytes / 4;
@@ -56,7 +55,6 @@ pub extern "C" fn syscall_read(fd: u32, read_buf: *mut u8, nbytes: usize) {
 }
 
 /// Write data to the prover.
-#[allow(unused_variables)]
 #[no_mangle]
 pub extern "C" fn syscall_write(fd: u32, write_buf: *const u8, nbytes: usize) {
     #[cfg(target_os = "zkvm")]

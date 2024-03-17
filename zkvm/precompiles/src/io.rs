@@ -1,4 +1,3 @@
-#![allow(unused_unsafe)]
 use crate::{syscall_read, syscall_write};
 use bincode;
 use serde::de::DeserializeOwned;

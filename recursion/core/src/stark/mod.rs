@@ -17,7 +17,6 @@ pub enum RecursionAir<F: PrimeField32> {
     MemoryFinalize(MemoryGlobalChip),
 }
 
-#[allow(dead_code)]
 impl<F: PrimeField32> RecursionAir<F> {
     pub fn machine<SC: StarkGenericConfig<Val = F>>(config: SC) -> MachineStark<SC, Self> {
         let chips = Self::get_all()

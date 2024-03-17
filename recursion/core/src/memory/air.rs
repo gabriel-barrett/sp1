@@ -16,7 +16,6 @@ use crate::runtime::ExecutionRecord;
 
 pub(crate) const NUM_MEMORY_INIT_COLS: usize = size_of::<MemoryInitCols<u8>>();
 
-#[allow(dead_code)]
 impl MemoryGlobalChip {
     pub fn new(kind: MemoryChipKind) -> Self {
         Self { kind }
@@ -34,7 +33,6 @@ impl<F: PrimeField32> MachineAir<F> for MemoryGlobalChip {
         }
     }
 
-    #[allow(unused_variables)]
     fn generate_trace(
         &self,
         input: &ExecutionRecord<F>,

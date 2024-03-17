@@ -102,7 +102,6 @@ pub struct MemoryInitCols<T> {
 }
 
 pub(crate) const NUM_MEMORY_INIT_COLS: usize = size_of::<MemoryInitCols<u8>>();
-#[allow(dead_code)]
 pub(crate) const MEMORY_INIT_COL_MAP: MemoryInitCols<usize> = make_col_map();
 
 const fn make_col_map() -> MemoryInitCols<usize> {

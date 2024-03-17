@@ -7,7 +7,6 @@ pub unsafe extern "C" fn sys_panic(msg_ptr: *const u8, len: usize) -> ! {
     syscall_halt(1);
 }
 
-#[allow(unused_variables)]
 #[no_mangle]
 pub fn sys_getenv(
     recv_buf: *mut u32,
@@ -18,7 +17,6 @@ pub fn sys_getenv(
     0
 }
 
-#[allow(unused_variables)]
 #[no_mangle]
 pub fn sys_alloc_words(nwords: usize) -> *mut u32 {
     core::ptr::null_mut()

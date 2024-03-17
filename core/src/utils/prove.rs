@@ -358,7 +358,6 @@ pub(super) mod baby_bear_keccak {
     }
 
     impl BabyBearKeccak {
-        #[allow(dead_code)]
         pub fn new() -> Self {
             let byte_hash = ByteHash {};
             let field_hash = FieldHash::new(byte_hash);
@@ -490,7 +489,6 @@ pub(super) mod baby_bear_blake3 {
 
     #[derive(Deserialize)]
     #[serde(from = "std::marker::PhantomData<BabyBearBlake3>")]
-    #[allow(dead_code)]
     pub struct BabyBearBlake3 {
         pcs: Pcs,
         recursive_verifier_pcs: RecursiveVerifierPcs,
